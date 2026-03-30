@@ -1,0 +1,20 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+
+# Logs
+*.log
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Sensitive config
+appsettings.Development.json
+
+# Uploads
+Uploads/

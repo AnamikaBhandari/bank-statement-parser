@@ -1,0 +1,38 @@
+﻿@model List<AutoLedger.Models.Transaction>
+
+<h2>Upload Bank Statement</h2>
+
+<form asp-controller="Home" asp-action="Upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Upload</button>
+</form>
+
+<p>@ViewBag.Message</p>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Transactions</h3>
+
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Debit</th>
+            <th>Credit</th>
+            <th>Balance</th>
+            <th>Voucher Type</th>
+        </tr>
+
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Date.ToShortDateString()</td>
+                <td>@t.Description</td>
+                <td>@t.Debit</td>
+                <td>@t.Credit</td>
+                <td>@t.Balance</td>
+                <td>@t.TranType</td>
+            </tr>
+        }
+    </table>
+}
